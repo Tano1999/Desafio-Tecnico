@@ -1,0 +1,321 @@
+.div_catalogue_general{
+    padding-top: 6rem;
+    .div_title{
+        h3{
+            font-size: 2.3vh;
+            margin-top: 3rem;
+            color: #1f1f1f8c;
+            letter-spacing: 3px;
+            position: relative;
+            &::before{
+                content: "";
+                position: absolute;
+                left: 40%;
+                right: 40%;
+                bottom: -1rem;
+                height: 1.5px;
+                background: rgba(31, 31, 31, 0.5490196078);
+            }
+        }
+        h2{
+            padding: 1rem 0rem 4rem 0rem;
+            font-size: 2rem;
+            font-size: 3.5vh;
+        }
+    }
+    .div_catalogue{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        .box_item{
+            // background-image: url(../images/catalogo/acero_inox/acero_inox.jpg);
+            width: 25vw !important;
+            height: 25vw!important;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            border-radius: 10px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: auto;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px #00000057;
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #000;
+                // background-color: #30D5C8;
+                opacity: 0.5;
+                 z-index: 0;
+                border-radius: 10px;
+            }
+            h3{
+                text-align: center;
+                font-family: 'Libre Baskerville';
+                font-weight: bold;
+                // color: #1f1f1f;
+                color: #fff;
+                font-size: 2vh;
+                letter-spacing: 2px;
+                z-index: 1;
+            }
+            &:hover{
+                cursor: pointer;
+                // transition: .5s all;
+                &::before{
+                    opacity: 0.5;
+                    transition: 0.3s all;
+                    background: linear-gradient(to top, rgb(255 255 255) 20%, rgba(255, 255, 255, 0) 50%);
+                }
+                h3{
+                     transition: .3s all;
+                    color: #1f1f1f;
+                }
+            }
+            &.ocultar{
+                z-index: 0;
+            }
+        }
+        .div_modal{
+            // display: none;
+            position: fixed;
+            width: 100vw;
+            height: calc(100vh - 6rem);
+            margin: auto;
+            top: 6rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(0 0 0 / 50%);
+            z-index: 2;
+            &.mostrar{
+                display: block ;
+            }
+            .container-fluid{
+                height: calc(100vh - 6rem);
+                .modal_box{
+                    padding: 4rem;
+                    position: relative;
+                    height: 90%;
+                    margin-top: 3%;
+                    background-color: white;
+                    .title_seccion{
+                        text-align: center;
+                        margin: auto;
+                        margin-bottom: 3rem;
+                        padding-bottom: 1rem;
+                        font-family: "Libre Baskerville";
+                        font-weight: bold;
+                        font-size: 3.4vh;
+                        border-bottom: 1px solid #1f1f1f;
+                        width: 60%;
+                    }
+                    .articulos{
+                        overflow-y: scroll;
+                        padding-right: 1rem;
+                        max-height: 80%;
+                        &::-webkit-scrollbar {
+                            -webkit-appearance: none;
+                        }
+                        &::-webkit-scrollbar:vertical {
+                            width: 15px;
+                        }
+                        &::-webkit-scrollbar-button {
+                            display: none;
+                        }
+                        &::-webkit-scrollbar:horizontal {
+                            height: 10px;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background-color: #30D5C8;
+                            // border-radius: 20px;
+                            border-right: 2px solid #fff;
+                            // border-top: 4px solid #fff;
+                        }
+                        &::-webkit-scrollbar-track {
+                            border-radius: 10px;
+                        }
+                        .div_articulo{
+                            margin-bottom: 1rem;
+                            padding: .5rem;
+                            border: 1px solid #1f1f1f;
+                            .title_articulo{
+                                font-size: 3vh;
+                                color: #1f1f1f;
+                                letter-spacing: 1px;
+                                margin: 0;
+                                font-weight: 500;
+                            }
+                            .title_detalle{
+                                color: #1f1f1f;
+                                text-decoration: underline;
+                                margin-top: .5rem;
+                                margin-bottom: .5rem;
+                                font-size: 2.2vh;
+                                font-weight: 400;
+                            }
+                            .div_productos{
+                                flex-wrap: wrap;
+                                display: block;
+                                .div_producto{
+                                    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+                                    align-items: center;
+                                    width: fit-content;
+                                    .title_producto{
+                                        color: #1f1f1f;
+                                        font-size: 1.9vh;
+                                        font-weight: 300;
+                                        height: fit-content;
+                                        // text-align: center;
+                                        &:first-child{
+                                            margin-top: 1rem;
+                                        }
+                                        .info-product{
+                                            font-size: 1.5vh;
+                                            opacity: .7;
+                                        }
+                                    }
+                                    &.with_img{
+                                        // border: 1px solid black;
+                                        box-shadow: 0px 4px 10px grey;
+                                        transition: 1s all;
+                                        overflow: hidden;
+                                        .img-producto{
+                                            width: 10vh !important;
+                                            height: 10vh !important;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: end;
+                                            position: relative;
+                                            background-size: cover;
+                                            background-position: center;
+                                            background-repeat: no-repeat;
+                                            // box-shadow: 0 4px 10px rgb(0 0 0 / 34%);
+                                        }
+                                        .title_producto {
+                                            overflow: hidden;
+                                            position: relative;
+                                            border-top: 1px solid black;
+                                            margin: 0;
+                                            padding-top: 1rem;
+                                            padding-bottom: 1rem;
+                                            background-color: #fff;
+                                        }
+                                        .img-producto{}
+                                        &:hover{
+                                            cursor: pointer;
+                                            transition: .5s all;
+                                            box-shadow: 0px 10px 20px grey;
+                                            .img-producto{
+                                                transition: .5s all;
+                                                scale: (1.1);
+                                            }
+                                        }
+                                    }
+                                }
+                                &.with_img{
+                                    display: flex;
+                                }
+                            }
+                            .comentario{
+                                text-align: right;
+                                font-size: 1.5vh;
+                                margin: 0;
+                                color: #1f1f1f;
+                                opacity: .7;
+                            }
+                        }
+                    }
+                    .closed-box{
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        color: black;
+                        transition: .5s all;
+                        &:hover{
+                            cursor: pointer;
+                            transition: .5s all;
+                            color: red;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                cursor: default;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .div_catalogue_general{
+        .div_title{
+            h3{
+                margin-top: 1rem;
+            }
+            h2{
+                font-size: 2.5vh;
+                padding: 1rem 0rem 2rem 0rem;
+            }
+        }
+        .div_catalogue{
+            .box_item{
+                width: 35vw !important;
+                 height: 35vw !important;
+                 margin-bottom: 1rem;
+                &::before{
+                }
+                h3{
+                    font-size: 1.3vh;
+                }
+            }
+            .div_modal{
+                height: calc(100vh - 4rem);
+                top: 4rem;
+                .container-fluid{
+                    width: 95% !important;
+                    height: calc(100vh - 4rem);
+                    .modal_box{
+                        padding: 2rem 1rem;
+                        margin-top: 5%;
+                        height: 95%;
+                        .title_seccion{
+                            font-size: 2.5vh;
+                        }
+                        .articulos{
+                            .div_articulo{
+                                .title_articulo{
+                                    font-size: 2.3vh;
+                                }
+                                .div_productos{
+                                    &.with_img{
+                                        justify-content: space-around;
+                                    }
+                                    .div_producto{
+                                        margin: 1.5rem 0rem 1.5rem 0rem;
+                                        &.with_img{
+                                         margin: 1.5rem 1rem 1.5rem 0rem;
+                                        
+                                        }
+                                        .title_producto {
+                                             font-size: 2.2vh;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

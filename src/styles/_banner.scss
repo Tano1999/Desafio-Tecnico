@@ -1,0 +1,184 @@
+.div_banner{
+    padding-top: 6rem;
+    height: calc(100vh);
+    background-image: url('../images/img/equipo-odonto.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(to right, rgba(243, 227, 223, 0.39)15%, rgba(255,255,255,0)49%);
+        z-index: 0;
+        // background: linear-gradient(to right, #30D5C8 30% , white 40%,);
+        // opacity: .2;
+    }
+    .container-fluid{
+        height: 100%;
+        z-index: 1;
+        .row{
+            height: 100%;
+            .first_col{
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                .title{
+                    color: #1f1f1f;
+                    font-family: 'Libre Baskerville';
+                    font-weight: bold;
+                    font-size: 7vh;
+                    // text-transform: capitalize;
+                    line-height: 1.3;
+                    margin-top: 20vh;
+                    .title_deco{
+                        // color: #30D5C8;
+                        color: #fff;
+                    }
+                }
+                .subtitle{
+                    font-size: 2vh;
+                    padding-left: 0.5rem;
+                    margin-top: 2rem;
+                    letter-spacing: 4px;
+                }
+                .btn_banner{
+                    justify-content: center;
+                    margin-top: 7rem;
+                    width: 65%;
+                    a{
+                        // border: 3px solid #818181;
+                        border: 2px solid #1f1f1f;
+                        border-radius: 3rem;
+                        padding: 2rem 1rem;
+                        text-decoration: none;
+                        transform: rotate(180deg);
+                        transition: .5s all;
+                        i{
+                            // color: #818181;
+                            color: #1f1f1f;
+                            display: flex;
+                            // transform: rotate(90deg);
+                            font-size: 3vh;
+                            transition: .5s all;
+
+                        }
+                        &:hover{
+                            // border-color: #30D5C8;
+                            // background-color: #30D5C8;
+                            // background-color: #fff;
+                            border-color: #fff;
+                            transition: .5s all;
+
+                            i{
+                                color: #fff;
+                                transition: .5s all;
+                            }
+                        }
+                    }
+                    .icon-arrow-up {
+                        animation: backsimbol 2200ms infinite;
+                      }
+                      
+                        @keyframes backsimbol {
+                        from {
+                            transform: translateY(100%);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateY(-50%);
+                            opacity: 0.9;
+                        }
+                        to {
+                            transform: translateY(-80%);
+                            opacity: 0.9;
+                        }
+                        to {
+                            transform: translateY(-130%);
+                            opacity: .1;
+                        }
+                    }
+                }
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -15vw;
+                    right: 15vw;
+                    bottom: 0;
+                    background-color: #30D5C8;
+                    z-index: 0;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 5rem;
+                    bottom: 0;
+                    background-color: #30D5C8;
+                    z-index: -1;
+                    width: 20rem;
+                    transform: skewX(10deg);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .div_banner{
+        background-image: url('../images/img/equipo-odonto-mobile.jpg');
+        &::after{
+            backdrop-filter: blur(5px);
+        }
+        .container-fluid{
+            .row{
+                .first_col{
+                    // justify-content: center;
+                    .title{
+                        font-size: 4vh;
+                        margin-top: 10rem;
+                        .title_deco{
+                            color: #30D5C8;
+                        }
+                    }
+                    .subtitle{
+                    }
+                    .btn_banner{
+                        width: 100%;
+                        a{
+                            border: 2px solid #1f1f1f;
+                        }
+                    }
+                    &::before{
+                        display: none;
+                    }
+                    &::after{
+                        display: none;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-height: 739px) {
+    .div_banner{
+        .container-fluid{
+            .row{
+                .first_col{
+                    .title{
+                        font-size: 4vh;
+                        margin-top: 5rem;                   
+                    }
+                }
+            }
+        }
+    }
+}

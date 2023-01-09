@@ -1,0 +1,142 @@
+#contact {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  padding-top: 12vh;
+  padding-bottom: 10vh;
+  background-image: url('../images/img/contact.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  color: rgba(255, 255, 255, 0.829);
+  .divContact {
+    margin: 0 20vw;
+    backdrop-filter: blur(5px);
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.062);
+    h3{
+      font-size: 2.3vh;
+      color: #fffefe8c;
+      letter-spacing: 3px;
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        left: 35%;
+        right: 35%;
+        bottom: -1rem;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.549);
+      }
+    }
+    h2{
+      text-align: center;
+      font-size: 3.5vh;
+      color: rgba(255, 255, 255, 0.788);
+    }
+    h4{
+      font-size: 2vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.616);
+    }
+    p{
+      font-size: 1.5vh;
+      a{
+        color: rgba(255, 255, 255, 0.808);
+        text-decoration: none;
+      }
+    }
+    form{
+      padding: 1rem 0rem 2rem 0rem;
+      justify-content: center;
+      .alignForm {
+        margin-top: 1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        input[type=number],
+        input[type=name],
+        select,
+        textarea {
+          margin-top: .4rem;
+          background: transparent;
+          border: 1px solid white;
+          border-radius: 15px;
+          color: white;
+          &:focus {
+            outline: none;
+            border: 1px solid #1f1f1f !important;
+          }
+          :-webkit-autofill{
+            background: transparent !important;
+          }
+        }
+      }
+      .btn{
+        margin-top: 5vh;
+        background-color: #30D5C8;
+        width: fit-content;
+        color: #fff;
+        border: 2px solid #30D5C8;
+        font-size: 2vh;
+        &:hover{
+          color: #30D5C8;
+          background-color: transparent;
+        }
+      }
+    }
+    }
+
+}
+@media (max-width: 992px) {
+  #contact {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin-top: 6vh;
+    .container-fluid{
+      width: 100% !important;
+      .divContact {
+        padding: 1rem;
+        margin: 0;
+        h3{
+        }
+        h2{
+          font-size: 2.5vh;
+        }
+        h4{
+          font-size: 1.7vh;
+        }
+        p{
+          a{
+            justify-content: center;
+            margin-top: .5rem;
+          }
+        }
+        form{
+          font-size: .8rem;
+          .alignForm {
+            input[type=text],
+            input[type=tel],
+            input[type=email],
+            input[type=number],
+            input[type=name],
+            select,
+            textarea {
+            }
+          }
+          .btn{
+          }
+        }
+      }
+    }
+  
+  }
+}
+

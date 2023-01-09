@@ -1,0 +1,40 @@
+.main_tienda{
+    .title{
+        font-size: 3vh;
+        font-weight: bold;
+        margin: 5rem 0;
+    }
+    .first-fiv{
+        padding: 2rem;
+        border: 1px solid black;
+        .subtitle{
+            margin-bottom: 2rem;
+            font-size: 2vh;
+            color: gray;
+        }
+        input{
+            border: 1px solid black;
+            width: 8rem;
+            margin-left: 2rem;
+            padding: .5rem;
+        }
+        .btn{
+            margin-left: 5rem;
+        }
+    }
+    .second-fiv{
+        margin-top: 3rem;
+        padding: 2rem;
+        border: 1px solid black;
+        .subtitle{
+            font-size: 2vh;
+            color: gray;
+            margin-bottom: 2rem;
+
+        }
+        .resultados{
+         border: 1px solid black;
+            padding: 1rem;
+        }
+    }
+}
