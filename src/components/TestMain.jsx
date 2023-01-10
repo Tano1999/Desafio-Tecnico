@@ -80,11 +80,14 @@ const TestMain = () => {
                         </div>
 
                         <div className="body_table row">
-                            {products.map( product => ( 
-                                <div key={product.id} className='div_producto col-12'>
-                                    <Producto cantidad={product.cantidad} id={product.id} title={product.title} price={product.price} image={product.image} closed={(id)=>closed(id)}/> 
-                                </div>
-                            ))}
+                            {
+                                products.length === 0 ? <div className='p-5'><h3>No hay productos en el carro aún, prueba agregando arriba con su id y la cantidad que deseas ingresar</h3></div> :
+                                products.map( product => ( 
+                                    <div key={product.id} className='div_producto col-12'>
+                                        <Producto cantidad={product.cantidad} id={product.id} title={product.title} price={product.price} image={product.image} closed={(id)=>closed(id)}/> 
+                                    </div>
+                                ))
+                            }
                         </div>      
                     </div>
                 </div>
