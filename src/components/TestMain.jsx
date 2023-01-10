@@ -5,29 +5,40 @@ import Producto from './Producto';
 
 const TestMain = () => {
     const [data, setData] = useState({});
+    const [products, setProducts] = useState([]);
 
+    const closed = (id) =>{
+        const newArray = products.filter(product => ( product.id !== id ))
+        setProducts(newArray)
+    }
 
     const handleChange = (e) =>{
-        setData({
-            ...data,
-            [e.target.name] : e.target.value
-        })
+        if (e.target.value > 99){
+            alert("no puede superar los 100 productos")
+            document.getElementById("formProducto").reset();
+        }else{
+            setData({
+                ...data,
+                [e.target.name] : e.target.value
+            })
+        }
     }
 
     const sendInfo = (event) => {
         event.preventDefault();
-        console.log(data);
+        // console.log(data);
 
-        // const data = JSON.stringify(form);
         const peticion = fetch(`https://fakestoreapi.com/products/${data.id}`);
 
         peticion.then((response) => 
             response.json())
-            .then(data => {
-                console.log(data)
+            .then(res => {
+                console.log(res);
+                const cantidad = data.cantidad;
+                res.cantidad = cantidad;
+                setProducts([...products, res])
             })
-        .catch( console.warn)
-
+            .catch( console.warn)
         document.getElementById("formProducto").reset();
     } 
 
@@ -40,32 +51,41 @@ const TestMain = () => {
                     <form id='formProducto' onSubmit={sendInfo}>
                         <input type="number" placeholder='Cantidad' name="cantidad" id="cantidad" onChange={handleChange}  />
                         <input type="number" placeholder='ID del Producto' name="id" id="id" onChange={handleChange} />
-                        <button type='submit' className='btn btn-success'>agregar</button>
+                        <button type='submit' className='btn'>agregar</button>
                     </form>
                 </div>
                 <div className="second-fiv">
                     <h3 className='subtitle'>Carrito de compra</h3>
-                    <div className=" container-fluid resultados">
-                        <div className="row">
-                            <div className="col-2 text-center">
-                              <span>Cant</span>
+                    <div className=" resultados">
+                        
+                        <div className="header_table row">
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Cant</span>
                             </div>
-                            <div className="col-2 text-center">
-                              <span>Nombre</span>
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Nombre</span>
                             </div>
-                            <div className="offset-2 col-2 text-center">
-                              <span>Precio U</span>
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Precio U</span>
                             </div>
-                            <div className="col-2 text-center">
-                              <span>Precio T</span>
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Precio T</span>
                             </div>
-                            <div className="col-2 text-center">
-                              <span>Foto</span>
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Foto</span>
                             </div>
-                            <div className='col-12'>
-                                <Producto/> 
+                            <div className="box_header col-2 text-center">
+                                <span className='text-tabla'>Eliminar</span>
                             </div>
-                        </div> 
+                        </div>
+
+                        <div className="body_table row">
+                            {products.map( product => ( 
+                                <div key={product.id} className='div_producto col-12'>
+                                    <Producto cantidad={product.cantidad} id={product.id} title={product.title} price={product.price} image={product.image} closed={(id)=>closed(id)}/> 
+                                </div>
+                            ))}
+                        </div>      
                     </div>
                 </div>
             </div>
